@@ -10,7 +10,7 @@ import org.springframework.core.env.Environment;
 import java.util.Arrays;
 
 @Slf4j
-@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
+@SpringBootApplication
 @MapperScan("com.fitness.app.fitness.mappers")
 public class FitnessApplication {
 

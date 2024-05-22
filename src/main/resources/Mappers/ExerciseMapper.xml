@@ -2,20 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fitness.app.fitness.mappers.UserMapper">
 
-    <resultMap id="BaseResultMap" type="com.fitness.app.fitness.models.Exercise">
-        <result column="exerciseId" jdbcType="INTEGER" property="exerciseId"/>
-        <result column="exerciseName" jdbcType="VARCHAR" property="exerciseName"/>
-        <result column="category" jdbcType="VARCHAR" property="category"/>
-        <result column="description" jdbcType="VARCHAR" property="description"/>
-    </resultMap>
 
-    <resultMap id="ResultMap" type="com.fitness.app.fitness.models.ExerciseRecord">
-        <result column="recordId" jdbcType="INTEGER" property="recordId"/>
+    <resultMap id="RecordMap" type="com.fitness.app.fitness.models.ExerciseRecord">
+        <id column="recordId" jdbcType="INTEGER" property="recordId"/>
         <result column="exerciseId" jdbcType="INTEGER" property="exerciseId"/>
         <result column="count" jdbcType="INTEGER" property="count"/>
         <result column="dateTime" jdbcType="TIMESTAMP" property="dateTime"/>
         <result column="score" jdbcType="FLOAT" property="score"/>
         <result column="durationTime" jdbcType="INTEGER" property="durationTime"/>
+        <association property="exercise" javaType="com.fitness.app.fitness.models.Exercise">
+            <id column="exerciseId" jdbcType="INTEGER" property="exerciseId"/>
+            <result column="exerciseName" jdbcType="VARCHAR" property="exerciseName"/>
+            <result column="category" jdbcType="VARCHAR" property="category"/>
+            <result column="description" jdbcType="VARCHAR" property="description"/>
+        </association>
     </resultMap>
 
     <select id="getExerciseById" resultType="com.fitness.app.fitness.models.Exercise">
