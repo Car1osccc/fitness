@@ -18,7 +18,7 @@
     <select id="getUserById" resultType="com.fitness.app.fitness.models.User">
         SELECT *
         from user
-        WHERE userId = #{userId}
+        WHERE ID = #{userId}
     </select>
 
     <select id="verifyAccount" resultType="com.fitness.app.fitness.models.User">
