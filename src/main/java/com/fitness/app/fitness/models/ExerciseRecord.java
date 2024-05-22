@@ -1,6 +1,5 @@
-package com.fitness.app.fitness.dal;
+package com.fitness.app.fitness.models;
 
-import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 import java.util.Date;
@@ -8,7 +7,7 @@ import java.util.Date;
 @Data
 public class ExerciseRecord {
 
-    private String recordId;
+    private Integer recordId;
 
     private String exerciseId;
 

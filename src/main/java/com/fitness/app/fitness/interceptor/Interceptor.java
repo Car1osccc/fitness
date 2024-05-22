@@ -1,6 +1,6 @@
 package com.fitness.app.fitness.interceptor;
 
-import com.fitness.app.fitness.dal.User;
+import com.fitness.app.fitness.models.User;
 import com.fitness.app.fitness.service.UserService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.Cookie;
@@ -10,10 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-
-import java.nio.charset.StandardCharsets;
 
 
 @Slf4j

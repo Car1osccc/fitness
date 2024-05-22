@@ -24,6 +24,11 @@ public class ChatController {
         this.chatClient = chatClient;
     }
 
+    @GetMapping("/generateTest")
+    public String generateTest() {
+        return "1111111";
+    }
+
     @GetMapping("/generate")
     public Map generate(@RequestParam(value = "message", defaultValue = "Tell me a joke")  String message) {
         return Map.of("generation", chatClient.call(message));

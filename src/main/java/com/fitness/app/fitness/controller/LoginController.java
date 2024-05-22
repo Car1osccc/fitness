@@ -1,13 +1,11 @@
 package com.fitness.app.fitness.controller;
 
+import com.fitness.app.fitness.models.ApiResult;
+import com.fitness.app.fitness.models.User;
+import com.fitness.app.fitness.service.UserService;
 import jakarta.annotation.Resource;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 
 
 /**
@@ -18,8 +16,22 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 @RequestMapping("/login")
 public class LoginController {
-    @PostMapping("/test")
-    public String test(){
+
+    @Resource
+    private UserService userService;
+
+    @RequestMapping("/test")
+    public String test() {
         return "Success";
+    }
+
+    @GetMapping("/verify")
+    public ApiResult<User> verify(@RequestParam(value = "userName") String userName, @RequestParam(value = "password") String password) {
+        User user = userService.verifyAccount(userName,password);
+        if(user!=null){
+            return ApiResult.ok(user);
+        }else {
+            return ApiResult.error("Invalid username or password");
+        }
     }
 }

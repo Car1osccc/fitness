@@ -1,12 +1,11 @@
-package com.fitness.app.fitness.dal;
+package com.fitness.app.fitness.models;
 
-import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 @Data
 public class Exercise {
 
-    private String exerciseId;
+    private Integer exerciseId;
 
     private String exerciseName;
 

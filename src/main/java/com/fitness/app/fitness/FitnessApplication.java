@@ -11,6 +11,7 @@ import java.util.Arrays;
 
 @Slf4j
 @SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
+@MapperScan("com.fitness.app.fitness.mappers")
 public class FitnessApplication {
 
     public static void main(String[] args) {

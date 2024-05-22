@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fitness.app.fitness.mappers.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.fitness.app.fitness.models.User">
+        <result column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="userName" jdbcType="VARCHAR" property="userName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="gender" jdbcType="VARCHAR" property="gender"/>
+        <result column="height" jdbcType="FLOAT" property="height"/>
+        <result column="weight" jdbcType="FLOAT" property="weight"/>
+    </resultMap>
+
+    <select id="getUserById" resultType="com.fitness.app.fitness.models.User">
+        SELECT *
+        from user
+        WHERE userId = #{userId}
+    </select>
+
+    <select id="verifyAccount" resultType="com.fitness.app.fitness.models.User">
+        SELECT *
+        from user
+        WHERE userName = #{userName}
+          AND password = #{password}
+    </select>
+
+    <insert id="insertUser">
+        INSERT INTO user
+        (userId, name, userName, password, email, phone, age, gender, height, weight)
+        VALUES (#{userId}, #{name}, #{userName}, #{password}, #{email}, #{phone}, #{age}, #{gender}, #{height},
+                #{weight})
+    </insert>
+
+</mapper>
+
+
