@@ -2,32 +2,29 @@ package com.fitness.app.fitness.models;
 
 import jakarta.validation.constraints.Email;
 import lombok.Data;
-import java.util.Date;
 
 @Data
 public class User {
 
-    private Integer ID;
+    private Integer userId;
 
-    private String Real_Name;
+    private String name;
+
+    private String userName;
 
     private String password;
 
     @Email(message = "Invalid format")
-    private String Email;
+    private String email;
 
-    private int Phone;
+    private String phone;
 
-    private int Age;
+    private int age;
 
-    private String Gender;
+    private String gender;
 
-    private int height;
+    private float height;
 
-    private int weight;
-
-    private String Login_Name;
-
-    private Date Submit_Date;
+    private float weight;
 
 }

@@ -18,7 +18,12 @@
     <select id="getUserById" resultType="com.fitness.app.fitness.models.User">
         SELECT *
         from user
-        WHERE ID = #{userId}
+        WHERE userId = #{userId}
+    </select>
+
+    <select id="getAllUser" resultType="com.fitness.app.fitness.models.User">
+        SELECT *
+        from user
     </select>
 
     <select id="verifyAccount" resultType="com.fitness.app.fitness.models.User">
@@ -30,9 +35,20 @@
 
     <insert id="insertUser">
         INSERT INTO user
-        (userId, name, userName, password, email, phone, age, gender, height, weight)
-        VALUES (#{userId}, #{name}, #{userName}, #{password}, #{email}, #{phone}, #{age}, #{gender}, #{height},
+        (name, userName, password, email, phone, age, gender, height, weight)
+        VALUES (#{name}, #{userName}, #{password}, #{email}, #{phone}, #{age}, #{gender}, #{height},
                 #{weight})
+    </insert>
+
+    <insert id="deleteUser">
+        DELETE FROM user
+        WHERE userId = #{userId};
+    </insert>
+
+    <insert id="updateUser">
+        UPDATE user
+        SET name = #{name}, userName = #{userName}, password = #{password}, email = #{email}, phone = #{phone}, age = #{age}, gender = #{gender}, height = #{height}, weight = #{weight}
+        WHERE userId = #{userId}
     </insert>
 
 </mapper>

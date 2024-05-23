@@ -21,4 +21,6 @@ public class FitnessApplication {
                 , Arrays.toString(env.getActiveProfiles()), Runtime.getRuntime().availableProcessors());
     }
 
+    
+
 }
