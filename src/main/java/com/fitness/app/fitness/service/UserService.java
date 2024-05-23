@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Resource
-    private UserMapper usermapper;
+    private UserMapper userMapper;
 
     public static final String COOKIE_NAME_TOKEN = "token";
 
@@ -23,29 +23,29 @@ public class UserService {
     }
 
     public User getUserById(Integer userId){
-        return usermapper.getUserById(userId);
+        return userMapper.getUserById(userId);
     }
 
     public List<User> getAllUser(){
-        return usermapper.getAllUser();
+        return userMapper.getAllUser();
     }
 
     public User verifyAccount(String userName, String password){
-        return usermapper.verifyAccount(userName,password);
+        return userMapper.verifyAccount(userName,password);
     }
 
     public void insertUser(User user)
     {
-        usermapper.insertUser(user);
+        userMapper.insertUser(user);
     }
 
     public void updateUser(User user)
     {
-        usermapper.updateUser(user);
+        userMapper.updateUser(user);
     }
 
     public void deleteUser(Integer userId)
     {
-        usermapper.deleteUser(userId);
+        userMapper.deleteUser(userId);
     }
 }

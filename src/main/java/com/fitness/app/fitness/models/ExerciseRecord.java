@@ -11,6 +11,8 @@ public class ExerciseRecord {
 
     private String exerciseId;
 
+    private Integer userId;
+
     private int count;
 
     private Date dateTime;
