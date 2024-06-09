@@ -6,10 +6,13 @@ import jakarta.annotation.Resource;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.constraints.NotNull;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.lang.NonNullApi;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 
@@ -26,9 +29,8 @@ public class Interceptor implements HandlerInterceptor {
     @Resource
     private StringRedisTemplate stringRedisTemplate;
 
-
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    public boolean preHandle(HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull Object handler) {
         Cookie[] cookies = request.getCookies();
         if (cookies == null) {
             return false;

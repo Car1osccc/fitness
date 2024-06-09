@@ -24,18 +24,13 @@ public class ChatController {
         this.chatClient = chatClient;
     }
 
-    @GetMapping("/generateTest")
-    public String generateTest() {
-        return "1111111";
-    }
-
     @GetMapping("/generate")
-    public Map generate(@RequestParam(value = "message", defaultValue = "Tell me a joke")  String message) {
+    public Map generate(@RequestParam(value = "message")  String message) {
         return Map.of("generation", chatClient.call(message));
     }
 
     @GetMapping("/generateStream")
-	public Flux<ChatResponse> generateStream(@RequestParam(value = "message", defaultValue = "Tell me a joke") String message) {
+	public Flux<ChatResponse> generateStream(@RequestParam(value = "message") String message) {
         Prompt prompt = new Prompt(new UserMessage(message));
         return chatClient.stream(prompt);
     }

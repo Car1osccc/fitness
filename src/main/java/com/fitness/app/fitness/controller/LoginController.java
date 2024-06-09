@@ -26,7 +26,8 @@ public class LoginController {
     }
 
     @GetMapping("/verify")
-    public ApiResult<User> verify(@RequestParam(value = "userName") String userName, @RequestParam(value = "password") String password) {
+    public ApiResult<User> verify(@RequestParam(value = "userName") String userName,
+                                  @RequestParam(value = "password") String password) {
         User user = userService.verifyAccount(userName,password);
         if(user!=null){
             return ApiResult.ok(user);
