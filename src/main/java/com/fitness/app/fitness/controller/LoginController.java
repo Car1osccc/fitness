@@ -1,6 +1,7 @@
 package com.fitness.app.fitness.controller;
 
 import com.fitness.app.fitness.models.ApiResult;
+import com.fitness.app.fitness.models.LoginVO;
 import com.fitness.app.fitness.models.User;
 import com.fitness.app.fitness.service.UserService;
 import jakarta.annotation.Resource;
@@ -25,10 +26,9 @@ public class LoginController {
         return "Success";
     }
 
-    @GetMapping("/verify")
-    public ApiResult<User> verify(@RequestParam(value = "userName") String userName,
-                                  @RequestParam(value = "password") String password) {
-        User user = userService.verifyAccount(userName,password);
+    @PostMapping("/verify")
+    public ApiResult<User> verify(@RequestBody LoginVO loginVO) {
+        User user = userService.verifyAccount(loginVO.getUserName(),loginVO.getPassword());
         if(user!=null){
             return ApiResult.ok(user);
         }else {

@@ -19,30 +19,33 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/get/{id}")
-    public User test(@PathVariable("id") Integer id) {
+    public ApiResult<User> test(@PathVariable("id") Integer id) {
         User user = userService.getUserById(id);
-        return user;
+        return ApiResult.ok(user);
     }
 
     @PutMapping("/update")
-    public void test(@RequestBody User user) {
+    public ApiResult test(@RequestBody User user) {
         userService.updateUser(user);
+        return ApiResult.ok();
     }
 
     @GetMapping("/get")
-    public List<User> getall() {
-        List<User> user = userService.getAllUser();
-        return user;
+    public ApiResult<List<User>> getall() {
+        List<User> users = userService.getAllUser();
+        return ApiResult.ok(users);
     }
 
     @PostMapping("/insert")
-    public void insertUser(@RequestBody User user) {
+    public ApiResult insertUser(@RequestBody User user) {
         userService.insertUser(user);
+        return ApiResult.ok();
     }
 
     @DeleteMapping("/delete")
-    public void deleteUser(@RequestBody String userId) {
+    public ApiResult deleteUser(@RequestBody String userId) {
         userService.deleteUser(Integer.valueOf(userId));
+        return ApiResult.ok();
     }
 
 }

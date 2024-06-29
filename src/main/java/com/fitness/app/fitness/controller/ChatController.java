@@ -1,5 +1,7 @@
 package com.fitness.app.fitness.controller;
 
+import com.fitness.app.fitness.models.ApiResult;
+import com.google.protobuf.Api;
 import org.springframework.ai.chat.ChatResponse;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -25,8 +27,8 @@ public class ChatController {
     }
 
     @GetMapping("/generate")
-    public Map generate(@RequestParam(value = "message")  String message) {
-        return Map.of("generation", chatClient.call(message));
+    public ApiResult<String> generate(@RequestParam(value = "message")  String message) {
+        return ApiResult.ok(chatClient.call(message));
     }
 
     @GetMapping("/generateStream")
