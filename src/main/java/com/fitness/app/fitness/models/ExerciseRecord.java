@@ -9,7 +9,7 @@ public class ExerciseRecord {
 
     private Integer recordId;
 
-    private String exerciseId;
+    private Integer exerciseId;
 
     private Integer userId;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fitness.app.fitness.mappers.UserMapper">
+<mapper namespace="com.fitness.app.fitness.mappers.ExerciseMapper">
 
     <resultMap id="RecordMap" type="com.fitness.app.fitness.models.ExerciseRecord">
         <id column="recordId" jdbcType="INTEGER" property="recordId"/>
@@ -23,10 +23,20 @@
         WHERE exerciseId = #{exerciseId}
     </select>
 
-    <select id="getExerciseRecordById" resultType="com.fitness.app.fitness.models.ExerciseRecord">
+    <select id="getAllExercise" resultType="com.fitness.app.fitness.models.Exercise">
         SELECT *
-        from exercise_record
-        WHERE exerciseRecordId = #{exerciseRecordId}
+        from exercise
+    </select>
+
+    <select id="getAllExerciseRecords" resultType="com.fitness.app.fitness.models.ExerciseRecord">
+        SELECT *
+        from record
+    </select>
+
+    <select id="getRecordById" resultType="com.fitness.app.fitness.models.ExerciseRecord">
+        SELECT *
+        from record
+        WHERE recordId = #{recordId}
     </select>
 
 
@@ -36,10 +46,34 @@
         VALUES (#{exerciseId}, #{exerciseName}, #{category}, #{description})
     </insert>
 
+     <insert id="deleteExercise">
+        DELETE FROM exercise
+        WHERE exerciseId = #{exerciseId};
+    </insert>
+
+    <insert id="deleteRecord">
+        DELETE FROM record
+        WHERE recordId = #{recordId};
+    </insert>
+
+     <insert id="updateExercise">
+        UPDATE exercise
+        SET exerciseName = #{exerciseName}, category = #{category}, description = #{description}
+        WHERE exerciseId = #{exerciseId}
+       
+    </insert>
+
+    <insert id="updateRecord">
+        UPDATE record
+        SET exerciseId = #{exerciseId}, userId = #{userId}, count = #{count}, dateTime = #{dateTime}, score = #{score}, durationTime = #{durationTime}
+        WHERE recordId = #{recordId}
+       
+    </insert>
+
     <insert id="insertRecord">
-        INSERT INTO exercise_record
-            (recordId, exerciseId, count, dateTime, score, durationTime)
-        VALUES (#{recordId}, #{exerciseId}, #{count}, #{dateTime}, #{score}, #{durationTime})
+        INSERT INTO record
+            (recordId, exerciseId,userId, count, dateTime, score, durationTime)
+        VALUES (#{recordId}, #{exerciseId},#{userId}, #{count}, #{dateTime}, #{score}, #{durationTime})
     </insert>
 
 </mapper>
