@@ -24,7 +24,7 @@ public class UserController {
         return ApiResult.ok(user);
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public ApiResult test(@RequestBody User user) {
         userService.updateUser(user);
         return ApiResult.ok();
@@ -42,7 +42,7 @@ public class UserController {
         return ApiResult.ok();
     }
 
-    @DeleteMapping("/delete")
+    @PostMapping("/delete")
     public ApiResult deleteUser(@RequestBody String userId) {
         userService.deleteUser(Integer.valueOf(userId));
         return ApiResult.ok();

@@ -30,13 +30,13 @@ public class ExerciseController {
         return ApiResult.ok(record);
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public ApiResult updateExercise(@RequestBody Exercise exercise) {
         exerciseService.updateExercise(exercise);
         return ApiResult.ok();
     }
 
-    @PutMapping("/updateRecord")
+    @PostMapping("/updateRecord")
     public ApiResult updateRecord(@RequestBody ExerciseRecord record) {
         exerciseService.updateRecord(record);
         return ApiResult.ok();
@@ -65,12 +65,12 @@ public class ExerciseController {
         return ApiResult.ok();
     }
 
-    @DeleteMapping("/delete")
+    @PostMapping("/delete")
     public ApiResult deleteExercise(@RequestBody String exerciseId) {
         exerciseService.deleteExercise(Integer.valueOf(exerciseId));
         return ApiResult.ok();
     }
-    @DeleteMapping("/deleteRecord")
+    @PostMapping("/deleteRecord")
     public ApiResult deleteExerciseRecord(@RequestBody String recordId) {
         exerciseService.deleteRecord(Integer.valueOf(recordId));
         return ApiResult.ok();
