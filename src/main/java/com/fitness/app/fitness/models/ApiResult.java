@@ -6,10 +6,6 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author Yihan Chen
- * @date 2023/2/10 16:56
- */
 @Data
 public class ApiResult<T> implements Serializable {
     private static final long serialVersionUID = -7995058338163551623L;

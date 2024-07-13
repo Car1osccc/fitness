@@ -13,13 +13,13 @@ public interface ExerciseMapper {
 
     Exercise getExerciseById(Integer exerciseId);
 
-    Void insertRecord(ExerciseRecord record);
+    void insertRecord(ExerciseRecord record);
 
-    Void updateRecord(ExerciseRecord record);
+    void updateRecord(ExerciseRecord record);
 
-    Void deleteRecord(Integer record);
+    void deleteRecord(Integer record);
 
-    Void insertExercise(Exercise exercise);
+    void insertExercise(Exercise exercise);
 
     void deleteExercise(Integer exerciseId);
 
