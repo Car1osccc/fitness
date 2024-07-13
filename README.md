@@ -16,3 +16,21 @@ git clone https://github.com/Car1osccc/fitness.git
 Use Gradle to build the project:
 
 gradle build
+
+## Configuration
+
+### Database Configuration
+The database configuration is managed in the `application.properties` file located in the `src/main/resources` directory. You need to set the appropriate database connection properties:
+
+spring.datasource.url=jdbc:mysql://localhost:3306/your_database
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+
+mybatis.mapper-locations=classpath:mapper/*.xml
+
+Replace `your_database`, `your_username`, and `your_password` with your actual database credentials.
+
+### MyBatis Configuration
+MyBatis mapper XML files should be placed in the `src/main/resources/mapper` directory. Ensure that your mapper interfaces are correctly annotated and configured.
+
+## Project Structure
